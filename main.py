@@ -15,6 +15,23 @@ with open('employee_birthday.txt') as csv_file:
             line_count += 1
     print(f'Processed {line_count} lines.')
 
+fields = []
+rows = []
+
+with open('employee_birthday.txt') as csv_file:
+    csv_reader = csv.reader(csv_file)
+    
+    fields = next(csv_reader)
+
+    print(fields)
+
+    for row in csv_reader:
+        rows.append(row)
+
+    for row in rows:
+        print(row)
+    
+
 with open('employee_file.csv', mode='w') as employee_file:
     employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
